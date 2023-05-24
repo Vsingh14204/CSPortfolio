@@ -63,73 +63,43 @@
       width: 100%;
       height: 100%;
     }
+
+    .text-background {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 10px;
+      margin-bottom: 20px;
+      width: 80%;
+    }
+
+    .text-background p {
+      color: white;
+    }
   </style>
 </head>
 <body>
   <div class="typewriter">HELLO! WELCOME TO MY COMPUTER SCIENCE PORTFOLIO</div>
   
-  <p>Welcome to my portfolio!
+  <div class="text-background">
+    <p>Welcome to my portfolio!
 
-I'm Vineet Singh, a freshman student at Knox College, majoring in Computer Science. Here, I'm excited to share my journey, accomplishments, and projects with you.
+I'm Vineet Singh, a freshman student at Knox College, majoring in Computer Science. I'm thrilled to have you here and share my journey and accomplishments with you.
 
-As a passionate learner, I have explored various programming languages, algorithms, and software development techniques. In this portfolio, you'll find a curated collection of my projects that highlight my skills in web development, algorithm design, and data visualization.
+From a young age, I've been fascinated by the limitless potential of technology and its ability to shape the world around us. My passion for Computer Science led me to pursue it as my major, and I've been on an exciting learning journey ever since.
 
-I take pride in developing a secure web-based e-commerce platform that enables seamless browsing and secure transactions. Another project I've worked on is a data visualization tool that simplifies complex datasets through interactive graphs and charts.
+In this portfolio, you'll find a glimpse into my projects and endeavors that showcase my skills, creativity, and problem-solving abilities. Whether it's developing web applications, exploring algorithms, or diving into data analysis, I'm constantly pushing myself to grow and embrace new challenges.
 
-Throughout my journey, I have embraced collaboration and effective communication. Participating in hackathons and coding competitions has taught me the value of teamwork and diverse perspectives.
+But it's not just about technical skills. Collaboration and teamwork are essential aspects of my journey. I believe in the power of collective intelligence and have actively participated in hackathons and coding competitions, working alongside talented individuals to tackle complex problems.
 
-As a freshman, I am eager to continue expanding my knowledge and exploring new frontiers, especially in machine learning and artificial intelligence.
+As a freshman, I'm eager to explore the ever-evolving landscape of Computer Science and its potential to make a positive impact. I'm particularly excited about the fields of artificial intelligence and machine learning, as they hold tremendous promise for solving real-world problems.
 
-Thank you for visiting my portfolio. Feel free to explore my projects, and don't hesitate to reach out for any questions or collaboration opportunities. I look forward to connecting with you!
+Thank you for visiting my portfolio. I hope you find inspiration, insights, and potential collaboration opportunities within my projects. Feel free to explore, and don't hesitate to reach out. I look forward to connecting with you!
 
 Best regards,
-Vineet Singh</p>
+Vineet Singh
+</p>
+  </div>
   
   <button class="button" onclick="playFullscreenVideo()">Click Here To Access My Projects</button>
 
   <div id="videoContainer">
-    <video id="fullscreenVideo" controls autoplay>
-      <source src="intro.mp4" type="video/mp4">
-    </video>
-  </div>
-
-  <script>
-    function playFullscreenVideo() {
-      var videoContainer = document.getElementById("videoContainer");
-      videoContainer.style.display = "block";
-
-      var fullscreenVideo = document.getElementById("fullscreenVideo");
-      fullscreenVideo.volume = 1; // Set volume to 100%
-      
-      fullscreenVideo.addEventListener("ended", function() {
-        exitFullscreen();
-      });
-
-      // Play the video when the metadata is loaded
-      fullscreenVideo.addEventListener("loadedmetadata", function() {
-        fullscreenVideo.play().catch(function(error) {
-          // Autoplay was prevented, show play button
-          fullscreenVideo.controls = true;
-        });
-      });
-
-      fullscreenVideo.requestFullscreen().catch(function(error) {
-        // Fullscreen request failed
-        fullscreenVideo.controls = true;
-      });
-    }
-
-    function exitFullscreen() {
-      if (document.exitFullscreen) {
-        document.exitFullscreen();
-      } else if (document.mozCancelFullScreen) {
-        document.mozCancelFullScreen();
-      } else if (document.webkitExitFullscreen) {
-        document.webkitExitFullscreen();
-      } else if (document.msExitFullscreen) {
-        document.msExitFullscreen();
-      }
-    }
-  </script>
-</body>
-</html>
+    <video id="fullscreenVideo" controls autoplay
