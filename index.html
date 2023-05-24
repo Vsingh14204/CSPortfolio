@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Redirect Button</title>
+  <style>
+    @keyframes typing {
+      from {
+        width: 0;
+      }
+      to {
+        width: 100%;
+      }
+    }
+
+    .typewriter {
+      overflow: hidden;
+      white-space: nowrap;
+      animation: typing 4s steps(40) 1s infinite alternate;
+      font-size: 40px;
+      color: black;
+      margin-bottom: 20px;
+      font-weight: bold;
+      background-color: white;
+      padding: 10px;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-image: url('xyz.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      color: black;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: red;
+      color: white;
+      font-size: 24px;
+      border: none;
+      cursor: pointer;
+    }
+
+    #videoContainer {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 9999;
+      background-color: black;
+    }
+
+    #fullscreenVideo {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="typewriter">HELLO! WELCOME TO MY COMPUTER SCIENCE PORTFOLIO</div>
+  <button class="button" onclick="playFullscreenVideo()">Click Here To Access My Projects</button>
+
+  <div id="videoContainer">
+    <video id="fullscreenVideo" controls autoplay>
+      <source src="intro.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <script>
+    function playFullscreenVideo() {
+      var videoContainer = document.getElementById("videoContainer");
+      videoContainer.style.display = "block";
+
+      var fullscreenVideo = document.getElementById("fullscreenVideo");
+      fullscreenVideo.volume = 1; // Set volume to 100%
+      
+      fullscreenVideo.addEventListener("ended", function() {
+        exitFullscreen();
+      });
+
+      // Play the video when the metadata is loaded
+      fullscreenVideo.addEventListener("loadedmetadata", function() {
+        fullscreenVideo.play().catch(function(error) {
+          // Autoplay was prevented, show play button
+          fullscreenVideo.controls = true;
+        });
+      });
+
+      fullscreenVideo.requestFullscreen().catch(function(error) {
+        // Fullscreen request failed
+        fullscreenVideo.controls = true;
+      });
+    }
+
+    function exitFullscreen() {
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      } else if (document.mozCancelFullScreen) {
+        document.mozCancelFullScreen();
+      } else if (document.webkitExitFullscreen) {
+        document.webkitExitFullscreen();
+      } else if (document.msExitFullscreen) {
+        document.msExitFullscreen();
+      }
+    }
+  </script>
+</body>
+</html>
